@@ -1,7 +1,10 @@
-﻿namespace Altan.API.Middlewares
+﻿using Microsoft.AspNetCore.Builder;
+
+namespace Altan.API.Middlewares
 {
-    public class MiddlewareExtensions
+    public static  class MiddlewareExtensions
     {
-        
+        public static IApplicationBuilder UseCustomExceptionHandler<T>(this IApplicationBuilder app) =>
+            app.UseMiddleware<T>();
     }
 }

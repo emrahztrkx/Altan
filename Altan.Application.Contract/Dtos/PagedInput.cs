@@ -2,7 +2,7 @@
 
 namespace Altan.Application.Contract.Dtos
 {
-    public class PagedAndFilteredInput
+    public class PagedInput
     {
         [Range(1, AppConsts.MaxPageSize)]
         public int MaxResultCount { get; set; }
@@ -10,7 +10,7 @@ namespace Altan.Application.Contract.Dtos
         [Range(0, int.MaxValue)]
         public int SkipCount { get; set; }
 
-        public PagedAndFilteredInput()
+        public PagedInput()
         {
             MaxResultCount = AppConsts.DefaultPageSize;
         }

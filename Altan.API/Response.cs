@@ -1,34 +1,37 @@
 ﻿namespace Altan.API
 {
-    public class BaseResponse : BaseResponse<object>
+    public class Response : Response<object>
     {
-        public BaseResponse()
+        public Response()
         {
             
         }
-        public BaseResponse(bool isSuccess = true):base(isSuccess)
+        public Response(bool isSuccess = true):base(isSuccess)
         {
-            
+            IsSuccess = isSuccess;
         }
         
-        public BaseResponse(int code, string message, bool isSuccess=true) : base(code, message)
+        public Response(int code, string message, bool isSuccess=true) : base(code, message)
         {
+            Code = code;
+            Message = message;
+            IsSuccess = isSuccess;
         }
     }
 
-    public class BaseResponse<T> where T : class, new()
+    public class Response<T> where T : class, new()
     {
-        public BaseResponse()
+        public Response()
         {
             
         }
-        public BaseResponse(T result = null, bool isSuccess = true)
+        public Response(T result = null, bool isSuccess = true)
         {
             IsSuccess = isSuccess;
             Result = result;
         }
 
-        public BaseResponse(int code, string message, T result = null, bool isSuccess = true)
+        public Response(int code, string message, T result = null, bool isSuccess = true)
         {
             Code = code;
             Message = message;

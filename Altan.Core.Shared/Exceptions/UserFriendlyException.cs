@@ -1,7 +1,11 @@
-﻿namespace Altan.Core.Shared.Exceptions
+﻿using System;
+
+namespace Altan.Core.Shared.Exceptions
 {
-    public class UserFriendlyException
+    public class UserFriendlyException : Exception
     {
-        
+        public string Message { get; set; }
+
+        public int Code { get; set; }
     }
 }

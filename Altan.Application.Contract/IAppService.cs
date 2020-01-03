@@ -1,6 +1,8 @@
-﻿namespace Altan.Application.Contract
+﻿using Altan.Core.Shared.Dependency;
+
+namespace Altan.Application.Contract
 {
-    public interface IAppService
+    public interface IAppService : IPerLifetimeScope
     {
         
     }
