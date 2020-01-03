@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Altan.Persistence\Altan.Persistence.csproj" />
+      <ProjectReference Include="..\Altan.Core\Altan.Core.csproj" />
     </ItemGroup>
 
 </Project>
