@@ -42,7 +42,7 @@ namespace Altan.API.Controllers
                 {
                     new Claim(ClaimTypes.Name, user.Id.ToString())
                 }),
-                Expires = DateTime.UtcNow.AddSeconds(36000),
+                Expires = DateTime.UtcNow.AddSeconds(ApiConsts.TokenExpiresInSeconds),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)
             };
@@ -51,7 +51,7 @@ namespace Altan.API.Controllers
             return Response<AuthenticateResult>(new AuthenticateResult()
             {
                 Token = token,
-                ExpiresInSeconds = 36000
+                ExpiresInSeconds = ApiConsts.TokenExpiresInSeconds
             });
         }
 
