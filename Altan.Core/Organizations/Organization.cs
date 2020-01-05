@@ -12,7 +12,7 @@ namespace Altan.Core.Organizations
         private OrganizationAccessType _organizationAccessType = CoreConsts.OrganizationAccessType;
         private bool _isActive = CoreConsts.OrganizationIsActive;
 
-        protected Organization()
+        public Organization()
         {
         }
 
