@@ -67,19 +67,9 @@ namespace Altan.EntityFramework
             return entity;
         }
 
-        public async Task SaveChangesAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
-
         public IQueryable<T> Query()
         {
             return _context.Set<T>().AsQueryable();
-        }
-
-        public void SaveChanges()
-        {
-            _context.SaveChanges();
         }
     }
 }

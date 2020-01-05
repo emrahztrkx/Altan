@@ -2,10 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Altan.Core.Common;
+using Altan.Core.Shared.Dependency;
 
 namespace Altan.Core
 {
-    public interface IRepository<T>
+    public interface IRepository<T> 
         where T : BaseEntity
     {
         T Add(T entity);
@@ -22,10 +23,6 @@ namespace Altan.Core
 
         Task<T> Update(T entity);
 
-        Task SaveChangesAsync();
-
         IQueryable<T> Query();
-
-        void SaveChanges();
     }
 }

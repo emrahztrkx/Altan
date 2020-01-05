@@ -5,6 +5,7 @@ using Altan.Core.Shared.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Altan.API.Middlewares
 {
@@ -41,9 +42,13 @@ namespace Altan.API.Middlewares
             context.Response.StatusCode = statusCode;
             context.Response.ContentType = "application/json";
 
-            var errorModel = new Response(e.Code, e.Message, false);
+            var errorModel = new ResponseBase(e.Code, e.Message, false);
 
-            return context.Response.WriteAsync(JsonConvert.SerializeObject(errorModel));
+            return context.Response.WriteAsync(JsonConvert.SerializeObject(errorModel, 
+                new JsonSerializerSettings 
+                { 
+                    ContractResolver = new CamelCasePropertyNamesContractResolver() 
+                }));
         }
     }
 }

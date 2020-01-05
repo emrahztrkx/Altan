@@ -2,6 +2,7 @@
 using Altan.Core;
 using Altan.Core.Shared.Dependency;
 using Altan.EntityFramework;
+using Altan.EntityFramework.UOW;
 using Autofac;
 using Module = Autofac.Module;
 
@@ -12,7 +13,6 @@ namespace Altan.Application.Modules
         protected override void Load(ContainerBuilder builder)
         {
             var assemblies = Assembly.GetExecutingAssembly();
-            
           
             builder.RegisterAssemblyTypes(assemblies)
                 .AssignableTo<ISingleInstance>()
@@ -25,9 +25,11 @@ namespace Altan.Application.Modules
                 .InstancePerRequest();
             
             builder.RegisterGeneric(typeof(Repository<>))
-                .As(typeof(IRepository<>))
+                    .As(typeof(IRepository<>))
                 .InstancePerLifetimeScope();
             
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+
             builder.RegisterAssemblyTypes(assemblies)
                 .AssignableTo<IPerLifetimeScope>()
                 .AsImplementedInterfaces()

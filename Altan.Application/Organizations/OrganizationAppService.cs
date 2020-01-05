@@ -14,51 +14,52 @@ namespace Altan.Application.Organizations
     {
         private readonly IRepository<Transaction> _transactionRepository;
 
-        public OrganizationAppService(IRepository<Transaction> transactionRepository)
+        public OrganizationAppService(IRepository<Transaction> transactionRepository,IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _transactionRepository = transactionRepository;
         }
 
+
         public Task Create(CreateOrganizationInput input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task Update(UpdateOrganizationInput input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task Delete(BaseEntityDto input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task ChangeStatus(ChangeStatusInput input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task AcceptSubscriptionRequest(BaseEntityDto input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task RejectSubscriptionRequest(BaseEntityDto input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task<IReadOnlyList<OrganizationDto>> GetOrganizations()
         {
             var transactions = _transactionRepository.GetAll();
 
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
 
         public Task<PagedResult<TransactionDto>> GetTransactions(GetAllTransactionsInput input)
         {
-            throw new UserFriendlyException();
+            throw new UserFriendlyException(ExceptionCode.None,"not implemented");
         }
     }
 }
